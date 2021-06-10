@@ -123,7 +123,7 @@ class FigureAnalizer:
         areas = []
         for cnt in self.counters:
             approx = cv2.approxPolyDP(cnt, 0.01 * cv2.arcLength(cnt, True), True)
-            if len(approx) > 11:
+            if len(approx) >= 5:
                 cv2.drawContours(self.image, [cnt], -1, (0, 0, 255), 2)
                 areas.append(int(cv2.contourArea(cnt)))
 
